@@ -11,14 +11,17 @@ template <class Type>
 
 class Node
 {
+private:
+	Type value;
+	Node * pointers;
 public:
 	Node();
+	Node(Type value);
 	virtual ~Node();
-private:
-	Type value;//container for the value stored in the node.
-	Node * pointers;// Pointer to the array of Nodes that are linked to this node.
 	Type getValue();
 	Node * getPointers();
+
 };
 
 #endif /* MODEL_NODE_H_ */
+
