@@ -36,8 +36,29 @@ for(int index = 0; index < size; index++)
 template <class Type>
 CTECArray<Type>::~CTECArray()
 {
+	ArrayNode<Type> * eraseMe = head;
+for(int index = 0; index < size; index++)
+{
+if(eraseMe -> getNext() != nullptr)
+{
+	head = eraseMe -> getNext();
+	eraseMe -> setNext(nullptr);
+	delete eraseMe->getNext();
+	eraseMe = head;
 
 }
+else
+{
+	delete eraseMe->getNext();
+	eraseMe = head;
+}
+delete head;
+}
+}
+
+
+
+
 template <class Type>
 int CTECArray<Type>:: getSize()
 {
