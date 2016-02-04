@@ -5,6 +5,12 @@
  *      Author: jand6944
  */
 
-
+#include "Controller.h"
+int main()
+{
+	Controller * baseController = new Controller();
+	baseController -> start();
+	return 0;
+}
 
 

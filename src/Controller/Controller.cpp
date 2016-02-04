@@ -6,15 +6,21 @@
  */
 
 #include "Controller.h"
+#include<string>
 
 Controller::Controller()
 {
-	// TODO Auto-generated constructor stub
-
+this->	intNode.setValue(5);
+this -> stringArrayNode.setValue("words are fun");
 }
 
 Controller::~Controller()
 {
-	// TODO Auto-generated destructor stub
+
 }
 
+void Controller :: start()
+{
+	cout<< intNode.getValue()<<endl;
+	cout<< stringArrayNode.getvalue()<<endl;
+}

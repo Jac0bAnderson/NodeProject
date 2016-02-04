@@ -7,9 +7,17 @@
 
 #ifndef CONTROLLER_CONTROLLER_H_
 #define CONTROLLER_CONTROLLER_H_
+#include <iostream>
+#include <string>
+#include "../Model/Node.h"
+#include "../Model/Node.cpp"
+#include "../Model/ArrayNode.h"
+#include "../Model/ArrayNode.cpp"
 
 class Controller
 {
+private:
+	Node<int> intNode;
 public:
 	Controller();
 	virtual ~Controller();

@@ -7,32 +7,38 @@
 
 #include "Node.h"
 #include <iostream>
+//using namespace std;
+
 template <class Type>
-Node<Type>::Node()
-{
-value = 0;
-pointers = nullptr;
+Node<Type> :: Node() {
+
+	value = 0;
+	pointers = nullptr;
 
 }
+
 template <class Type>
-Node<Type>::Node(Type value)
-{
-value = 0;
-pointers = nullptr;
+Node<Type>::Node(Type value) {
+
+	this -> value = value;
+	pointers = nullptr;
 
 }
+
 template <class Type>
 Node<Type>::~Node()
 {
 
 }
+
 template <class Type>
 Type Node<Type> :: getValue()
 {
-	return this-> value;
+	return this -> value;
 }
+
 template <class Type>
-Node<Type> *Node<Type> :: getPointers()
+Node<Type> * Node<Type> :: getPointers()
 {
-	return this->pointers;
+	return this -> pointers;
 }
