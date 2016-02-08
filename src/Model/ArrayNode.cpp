@@ -7,16 +7,20 @@
 
 #include "ArrayNode.h"
 
-
+/**
+ * gets the  value of the nodes
+ */
 template <class Type>
-ArrayNode<Type>::ArrayNode() : Node<Type>(){
+ArrayNode<Type>::ArrayNode() : Node<Type>()
+{
 
 	this->next = nullptr;
 
 }
 
 template <class Type>
-ArrayNode<Type>::ArrayNode(Type value) : Node<Type>(value) {
+ArrayNode<Type>::ArrayNode(Type value) : Node<Type>(value)
+{
 
 	this->value = value;
 	this->next = nullptr;
@@ -24,7 +28,8 @@ ArrayNode<Type>::ArrayNode(Type value) : Node<Type>(value) {
 
 
 template <class Type>
-ArrayNode<Type>::ArrayNode(Type value, ArrayNode * next) : Node<Type>(value) {
+ArrayNode<Type>::ArrayNode(Type value, ArrayNode * next) : Node<Type>(value)
+{
 
 	this->value = value;
 	this->next = next;
@@ -32,16 +37,19 @@ ArrayNode<Type>::ArrayNode(Type value, ArrayNode * next) : Node<Type>(value) {
 
 
 template <class Type>
-ArrayNode<Type>::~ArrayNode() {
-	// TODO Auto-generated destructor stub
-}
-
-template <class Type>
-void ArrayNode<Type> :: setNext(ArrayNode<Type> * next) {
+ArrayNode<Type>::~ArrayNode()
+{
 
 }
 
 template <class Type>
-ArrayNode<Type> * ArrayNode<Type> :: getNext() {
+void ArrayNode<Type> :: setNext(ArrayNode<Type> * next)
+{
+
+}
+
+template <class Type>
+ArrayNode<Type> * ArrayNode<Type> :: getNext()
+{
 	return this->next;
 }

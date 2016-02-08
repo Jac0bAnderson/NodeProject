@@ -6,6 +6,9 @@
  */
 
 #include "Controller.h"
+/**
+ * stars the program
+ */
 int main()
 {
 	Controller * baseController = new Controller();

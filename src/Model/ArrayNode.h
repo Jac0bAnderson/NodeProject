@@ -5,22 +5,26 @@
  *      Author: jand6944
  */
 
-#ifndef MODEL_ARRAYNODE_H_
-#define MODEL_ARRAYNODE_H_
-
-#include "Node.h"
+#ifndef MODEL_CTECARRAY_H_
+#define MODEL_CTECARRAY_H_
+//imports
+#include "ArrayNode.h"
 
 template <class Type>
-class ArrayNode: public Node<Type> { //Parent is always at the end
+class CTECArray
+{
+	//the private of the ArrayNode.cpp
 private:
-	ArrayNode * next;
+	int size;
+	ArrayNode * head;
+
+	//the public of the ArrayNode.cpp
 public:
-	ArrayNode(); //Regular constructor
-	ArrayNode(Type value);
-	ArrayNode(Type value, ArrayNode * next);
-	virtual ~ArrayNode();
-	ArrayNode * getNext();
-	void setNext(ArrayNode * next);
+	CTECArray(int size);
+	virtual ~CTECArray();
+	int getSize();
+	Type* get(int position);
+	void set(int position, Type value);
 };
 
-#endif /* MODEL_ARRAYNODE_H_ */
+#endif /* MODEL_CTECARRAY_H_ */
