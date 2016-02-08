@@ -9,10 +9,12 @@
 #include <iostream>
 //using namespace std;
 
-template <class Type>
-Node<Type> :: Node() {
+#include "Node.h"
+//using namespace std;
 
-	value = 0;
+template <class Type>
+Node<Type>::Node() {
+
 	pointers = nullptr;
 
 }
@@ -26,19 +28,22 @@ Node<Type>::Node(Type value) {
 }
 
 template <class Type>
-Node<Type>::~Node()
-{
-
+Node<Type>::~Node() {
+	// TODO Auto-generated destructor stub
 }
 
 template <class Type>
-Type Node<Type> :: getValue()
-{
+Type Node<Type> :: getValue() {
 	return this -> value;
 }
 
 template <class Type>
-Node<Type> * Node<Type> :: getPointers()
-{
+void Node<Type> :: setValue(Type value) {
+	this->value = value;
+}
+
+
+template <class Type>
+Node<Type> * Node<Type> :: getPointers() {
 	return this -> pointers;
 }

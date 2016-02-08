@@ -11,12 +11,11 @@
 #include "Node.h"
 
 template <class Type>
-class ArrayNode : public Node<Type>
-{
+class ArrayNode: public Node<Type> { //Parent is always at the end
 private:
 	ArrayNode * next;
 public:
-	ArrayNode();
+	ArrayNode(); //Regular constructor
 	ArrayNode(Type value);
 	ArrayNode(Type value, ArrayNode * next);
 	virtual ~ArrayNode();
