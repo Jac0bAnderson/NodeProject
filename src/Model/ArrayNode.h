@@ -20,11 +20,13 @@ private:
 
 	//the public of the ArrayNode.cpp
 public:
-	CTECArray(int size);
-	virtual ~CTECArray();
-	int getSize();
-	Type* get(int position);
-	void set(int position, Type value);
+	ArrayNode();
+	ArrayNode(const Type& value);
+	ArrayNode(const Type& value, ArrayNode<Type> * next);
+	virtual ~ArrayNode();
+	ArrayNode * getNext();
+	void setNext(ArrayNode<Type> * next);
+
 };
 
 #endif /* MODEL_CTECARRAY_H_ */

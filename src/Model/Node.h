@@ -25,12 +25,11 @@ private:
 
 public:
 	Node();
-	Node(Type value);
+	Node(const Type& value);
 	virtual ~Node();
 	Type getValue();
-    void setValue(Type value);
-	ArrayNode * getNext();
-	Node * getPointers();
+    void setValue( const Type& value );
+    Node * getPointers();
 };
 
 #endif /* MODEL_NODE_H_ */

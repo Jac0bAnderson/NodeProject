@@ -6,50 +6,50 @@
  */
 
 #include "CTECArray.h"
+#include <assert.h>
 
 using namespace std;
 /**
  * gets the values in the array
  */
-template <class Type>
+template<class Type>
 CTECArray<Type>::CTECArray(int size)
 {
 
-	this -> size = size;
-	head = nullptr;
+	this->size = size;
+	this->head = nullptr;
 
-	if(size <= 0) {
-		cerr << "You broke the universe!" << endl;
-		return;
-	}
+	assert(size > 0);
 
-	for(int index = 0; index < size; index++)
+	for (int index = 0; index < size; index++)
 	{
-		if(head != nullptr) {
+		if (head != nullptr)
+		{
 			//We have more than one arrayNode
-			ArrayNode<Type> nextNode;
+			ArrayNode<Type> * nextNode = new ArrayNode<Type>();
 			nextNode.setNext(head);
-			head = &nextNode;
-		} else {
+			head = nextNode;
+		} else
+		{
 			//this is the first in the array
-			ArrayNode<Type> first;
-			head = &first;
+			ArrayNode<Type> * first = new ArrayNode<Type>();
+			head = first;
 		}
 	}
 
 }
 
-template <class Type>
-CTECArray<Type>::~CTECArray() {
+template<class Type>
+CTECArray<Type>::~CTECArray()
+{
 	ArrayNode<Type> * deleteMe = head;
-	for(int index = 0; index < size; index++)
+	for (int index = 0; index < size; index++)
 	{
-		if(deleteMe->getNext() != nullptr)
+		if (deleteMe->getNext() != nullptr)
 		{
 			head = deleteMe->getNext();
 			deleteMe->setNext(nullptr);
-		}
-		else
+		} else
 		{
 			delete deleteMe->getNext();
 			deleteMe = head;
@@ -58,57 +58,49 @@ CTECArray<Type>::~CTECArray() {
 	delete head;
 }
 
-template <class Type>
-int CTECArray<Type>:: getSize()
+template<class Type>
+int CTECArray<Type>::getSize()
 {
 	return this->size;
 }
 
-
-template <class Type>
-Type* CTECArray<Type> :: get(int position)
+template<class Type>
+Type CTECArray<Type>::get(int position)
 {
 
 	//Bounds check for size and negative
-	if(position >= size || position < 0)
-	{
-		return nullptr;
-	}
-	else
-	{
-		ArrayNode<Type> * current = head;
-		//Inclusive becase I am inside the bounds :)>
-		for(int spot = 0; spot <= position; spot++)
-		{
+	assert(position < size && position < 0);
 
-			if(spot != position) {
-			//	current = current->getNext();
-			}
-			else {
-				return current->getValue();
-			}
+	ArrayNode<Type> * current = head;
+	//Inclusive becase I am inside the bounds :)>
+	for (int spot = 0; spot <= position; spot++)
+	{
+
+		if (spot != position)
+		{
+			current = current->getNext();
+		} else
+		{
+			return current->getValue();
 		}
 	}
 }
-template <class Type>
-void CTECArray<Type>:: set(int position, Type value)
+}
+template<class Type>
+void CTECArray<Type>::set(int position, const Type& value)
 {
-	if(position >= size || position < 0)
+assert(position < size && position >= 0);
+
+ArrayNode<Type> * current = head;
+for (int spot = 0; spot <= position; spot++)
+{
+	if (spot != position)
 	{
-		cerr << "Stop" << endl;
+		current = current->getNext();
+	} else
+	{
+		current->setValue(value);
 	}
-	else {
-		ArrayNode<Type> * current = head;
-		for(int spot = 0; spot <= position; spot++)
-		{
-			if(spot != position)
-			{
-				current = current -> getNext();
-			}
-			else
-			{
-				current -> setValue(value);
-			}
-		}
-	}
+}
+
 }
