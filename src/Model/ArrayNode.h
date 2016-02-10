@@ -15,8 +15,8 @@ class CTECArray
 {
 	//the private of the ArrayNode.cpp
 private:
-	int size;
-	ArrayNode * head;
+
+	ArrayNode * next;
 
 	//the public of the ArrayNode.cpp
 public:

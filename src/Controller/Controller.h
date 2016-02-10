@@ -10,11 +10,9 @@
 //Import section
 #include <iostream>
 #include <string>
-#include "../Model/Node.h"
+
 #include "../Model/Node.cpp"
-#include "../Model/ArrayNode.h"
 #include "../Model/ArrayNode.cpp"
-#include "../Model/CTECArray.h"
 #include "../Model/CTECArray.cpp"
 
 class Controller
@@ -24,7 +22,8 @@ private:
 	//Node<int> intNode;
 	//ArrayNode<string>stringArrayNode;
  //  ArrayNo<string> otherArrayNode;
-	CTECArray<string> * myStringArray;
+	//CTECArray<string> * myStringArray;
+	CTECArray<int> * notHipsterInts;
 
 	//the public things of the controller.cpp
  public:
