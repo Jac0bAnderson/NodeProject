@@ -30,7 +30,7 @@ Controller::~Controller()
 //called when started
 void Controller :: start()
 {
-
+arrayTimer.startTimer();
 
 	for(int index = 0; index < notHipsterInts->getSize(); index++)
 	{
@@ -38,8 +38,10 @@ void Controller :: start()
 	}
 	for(int index= 0; index < notHipsterInts->getSize(); index++)
 	{
-		cout << "notHipsterInts at index " << index << notHipsterInts-get->(index) << endl;
+		cout << "notHipsterInts at index " << index << notHipsterInts->get(index) << endl;
 	}
+	arrayTimer.stopTimer();
+	arrayTimer.displayTimerInformation();
 	//cout<< intNode.getValue()<<endl;
 	//cout<< stringArrayNode.getvalue()<<endl;
 

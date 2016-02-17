@@ -8,10 +8,10 @@
 #ifndef MODEL_CTECARRAY_H_
 #define MODEL_CTECARRAY_H_
 //imports
-#include "ArrayNode.h"
+#include "Node.h"
 
 template <class Type>
-class CTECArray
+class ArrayNode: public Node<Type>
 {
 	//the private of the ArrayNode.cpp
 private:
