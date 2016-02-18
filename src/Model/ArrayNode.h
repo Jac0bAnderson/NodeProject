@@ -22,10 +22,10 @@ private:
 public:
 	ArrayNode();
 	ArrayNode(const Type& value);
-	ArrayNode(const Type& value, ArrayNode<Type> * next);
+	ArrayNode(const Type& value, ArrayNode * next);
 	virtual ~ArrayNode();
 	ArrayNode * getNext();
-	void setNext(ArrayNode<Type> * next);
+	void setNext(ArrayNode * next);
 
 };
 

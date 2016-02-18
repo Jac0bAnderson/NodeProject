@@ -13,8 +13,7 @@ class CTECArray
 {
 private:
 	int size;
-	int length;
-	ArrayNode * head;
+	ArrayNode<Type> * head;
 public:
 	CTECArray(int size);
 	virtual ~CTECArray();

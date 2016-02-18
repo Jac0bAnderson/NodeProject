@@ -9,14 +9,9 @@
 #define MODEL_NODE_H_
 //import section
 #include <iostream>
-#include <string>
-#include "../Model/Node.h"
-#include "../Model/Node.cpp"
-#include "../Model/ArrayNode.h"
-#include "../Model/ArrayNode.cpp"
+
 
 template <class Type>
-
 class Node
 {
 private:
