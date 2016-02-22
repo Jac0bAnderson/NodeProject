@@ -9,7 +9,9 @@
 template<class Type>
 CTECList<Type>::CTECList()
 {
-
+this ->size = 0;
+this->head = nullptr;
+this->end = nullptr;
 }
 template<class Type>
 CTECList<Type>::~CTECList()
@@ -54,7 +56,11 @@ Type CTECList<Type>::getFromIndex(int index)
 template<class Type>
 Type CTECList<Type>::removeFromFront()
 {
-
+//Create a pointer to waht is after head
+	//delete what head is pointin to
+	//set head to the new head
+	ArrayNode<Type> * newHead = new ArrayNode<Type>();
+	newHead = head->getNext();
 }
 template<class Type>
 Type CTECList<Type>::removeFromEnd()
