@@ -6,6 +6,7 @@
  */
 
 #include "CTECList.h"
+#include<assert.h>
 template<class Type>
 CTECList<Type>::CTECList()
 {
@@ -61,10 +62,23 @@ Type CTECList<Type>::removeFromFront()
 	//set head to the new head
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
 	newHead = head->getNext();
+	delete this -> head;
+	this->head = newHead;
 }
 template<class Type>
 Type CTECList<Type>::removeFromEnd()
 {
+//loop over size
+	//or
+	//Loop until getNext()->getNext() == nullptr
+	Type returnValue;
+	assert(size > 0);
+	ArrayNode<Type> * newHead = new ArrayNode<Type>();
+	newHead = head->getNext();
+	returnValue = head->getValue();
+	delete head;
+	this->head  = newHead;
+	return returnValue;
 
 }
 template<class Type>

@@ -14,7 +14,7 @@ using namespace std;
  * gets the values in the array
  */
 template<class Type>
-CTECArray<Type>::CTECArray(int size)
+CTECArray<Type>:: CTECArray(int size)
 {
 
 	this->size = size;
@@ -66,7 +66,7 @@ int CTECArray<Type>::getSize()
 }
 
 template<class Type>
-Type CTECArray<Type>::get(int position)
+Type CTECArray<Type>:: get(int position)
 {
 
 	//Bounds check for size and negative
