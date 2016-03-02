@@ -22,12 +22,15 @@ CTECList<Type>::~CTECList()
 template<class Type>
 int CTECList<Type>:: getSize()
 {
+	return this->size;
 
 }
 template<class Type>
 void CTECList<Type>::addToFront(Type value)
 {
-
+	//check size >0
+		//make node point to head
+		//have head point to the new node
 }
 template<class Type>
 void CTECList<Type>:: addToEnd(Type value)
@@ -37,16 +40,25 @@ void CTECList<Type>:: addToEnd(Type value)
 template<class Type>
 void CTECList<Type>::addAtIndex(int index, Type value)
 {
+	//check (using assert) if index >= 0 and index <=size
+	//loop "for(int spot = 0; spot <index; spot++)"
+	//make node set previous next to new next
+	//call calculatedSize()
+
+
 
 }
 template<class Type>
 Type CTECList<Type>::getFront()
 {
-
+assert(Head != nullptr);
+return Head;
 }
 template<class Type>
 Type CTECList<Type>::getEnd()
 {
+assert(end != nullptr);
+return end;
 
 }
 template<class Type>
@@ -73,11 +85,40 @@ Type CTECList<Type>::removeFromFront()
 template<class Type>
 Type CTECList<Type>::removeFromEnd()
 {
-//Loop over size
-	//
+	//Loop over size
+	//or loop until getNext()->getNext()== nullptr
+	//get the value from the last node
+	//set the next to lst node to point to nullptr
+	//set the next to lst node as end
+	//delete the old last node
+	//before returb the variable call calculatedSize()
+	//return value
+	assert(size >0);
 	Type valueToRemove;
-	this->calculatedSize();
+	if(size == 1)
+	{
+	valueToRemove = removeFromFront();
+	end = nullptr;
+	calculatedSize();
+	return valueToRemove;
+	}
+	else
+	{
 
+
+	ArrayNode<Type> * current = Head;
+	for(int spot = 0; spot < size -1; spot ++)
+	{
+		current = current->getNext();
+	}
+	ArrayNode<Type> * pointer = Head;
+
+	valueToRemove = current->getNext()->getValue();
+	end = current;
+	delete current->getNext();
+	this->calculatedSize();
+	return valueToRemove();
+	}
 
 
 
