@@ -14,7 +14,7 @@ using namespace std;
  * gets the values in the array
  */
 template<class Type>
-CTECArray<Type>:: CTECArray(int size)
+CTECArray<Type>::CTECArray(int size)
 {
 
 	this->size = size;
@@ -24,11 +24,11 @@ CTECArray<Type>:: CTECArray(int size)
 
 	for (int index = 0; index < size; index++)
 	{
-		if (head != nullptr)
+		if (head !=  nullptr)
 		{
 			//We have more than one arrayNode
 			ArrayNode<Type> * nextNode = new ArrayNode<Type>();
-			nextNode.setNext(head);
+			nextNode->setNext(head);
 			head = nextNode;
 		} else
 		{
@@ -86,7 +86,7 @@ Type CTECArray<Type>:: get(int position)
 		}
 	}
 }
-}
+
 template<class Type>
 void CTECArray<Type>::set(int position, const Type& value)
 {

@@ -15,6 +15,7 @@ private:
 int size;
 ArrayNode<Type> *Head;
 ArrayNode<Type> *end;
+void calculatedSize();
 public:
 CTECList();
 ~CTECList();
@@ -28,7 +29,7 @@ Type getFromIndex(int index);
 Type removeFromFront();
 Type removeFromEnd();
 Type removeFromIndex(int index, Type value);
-Type set(index, Type value);
+Type set(int index, Type value);
 };
 
 

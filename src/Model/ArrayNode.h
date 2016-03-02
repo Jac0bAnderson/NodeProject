@@ -5,8 +5,8 @@
  *      Author: jand6944
  */
 
-#ifndef MODEL_CTECARRAY_H_
-#define MODEL_CTECARRAY_H_
+#ifndef MODEL_ARRAYNODE_H_
+#define MODEL_ARRAYNODE_H_
 //imports
 #include "Node.h"
 
@@ -29,4 +29,4 @@ public:
 
 };
 
-#endif /* MODEL_CTECARRAY_H_ */
+#endif /* MODEL_ARRAYNODE_H_ */

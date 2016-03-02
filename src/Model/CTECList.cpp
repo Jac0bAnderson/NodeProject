@@ -11,7 +11,7 @@ template<class Type>
 CTECList<Type>::CTECList()
 {
 this ->size = 0;
-this->head = nullptr;
+this->Head = nullptr;
 this->end = nullptr;
 }
 template<class Type>
@@ -57,24 +57,28 @@ Type CTECList<Type>::getFromIndex(int index)
 template<class Type>
 Type CTECList<Type>::removeFromFront()
 {
-//Create a pointer to waht is after head
+//Create a pointer to what is after head
 	//delete what head is pointin to
 	//set head to the new head
 	Type returnValue;
 		assert(size > 0);
 		ArrayNode<Type> * newHead = new ArrayNode<Type>();
-		newHead = head->getNext();
-		returnValue = head->getValue();
-		delete head;
-		this->head  = newHead;
+		newHead = Head->getNext();
+		returnValue = Head->getValue();
+		delete Head;
+		this->Head  = newHead;
+		this->calculatedSize();
 		return returnValue;
 }
 template<class Type>
 Type CTECList<Type>::removeFromEnd()
 {
-//loop over size
-	//or
-	//Loop until getNext()->getNext() == nullptr
+//Loop over size
+	//
+	Type valueToRemove;
+	this->calculatedSize();
+
+
 
 
 }
@@ -85,13 +89,57 @@ Type returnValue;
 assert(size >0);
 assert(index >= 0);
 assert(index < size);
-
-
-
+Type thingToRemove;
+ArrayNode<Type> * previous, deleteMe, newNext;
+if(index == 0)
+{
+	thingToRemove = removeFromFront();
 
 }
+else if(index == size-1)
+{
+	thingToRemove = removeFromEnd();
+}
+else
+{
+	for(int spot=0; spot < index + 1; spot++)
+	{
+
+	}
+	this->calculatedSize();
+}
+
+
+
+return thingToRemove;
+
+}
+
+template<class Type>//Calculates the size of the list by iterating over all the nodes in the list.
+void CTECList<Type> :: calculatedSize()
+{
+	assert(size >= 0);
+ArrayNode<Type> * counterPointer = Head;
+int count = 0;
+if(counterPointer == nullptr)
+{
+	size = 0;
+	return;//return on a void method makes it exit the method
+}
+else
+{
+	count++;
+while(counterPointer->getNext()  != nullptr)
+{
+counterPointer = counterPointer->getNext();
+count++;
+
+}
+this->size = count;
+}
+}
 template<class Type>
-Type CTECList<Type>:: set(index, Type value)
+Type CTECList<Type>:: set(int index, Type value)
 {
 
 }
