@@ -26,8 +26,10 @@ private:
 	//ArrayNode<string>stringArrayNode;
  //  ArrayNo<string> otherArrayNode;
 	//CTECArray<string> * myStringArray;
+	CTECList<int> numbers;
 	CTECArray<int> * notHipsterInts;
 	Timer arrayTimer;
+	void testLists();
 
 	//the public things of the controller.cpp
  public:

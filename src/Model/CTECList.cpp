@@ -14,23 +14,28 @@ this ->size = 0;
 this->Head = nullptr;
 this->end = nullptr;
 }
+/*
+ * 1: start at head
+ * 2:go over the nodes
+ * 3: update positions and delete
+ * 4:delete final
+ * 5:reset size, head, and end to default
+ */
 template<class Type>
 CTECList<Type>::~CTECList()
 {
-	ArrayNode<Type> * deleteMe = Head;
-		for (int index = 0; index < size; index++)
+	ArrayNode<Type> * current = Head;
+		for (int deleteCount = 0; deleteCount < size; deleteCount++)
 		{
-			if (deleteMe->getNext() != nullptr)
-			{
-				Head = deleteMe->getNext();
-				deleteMe->setNext(nullptr);
-			} else
-			{
-				delete deleteMe->getNext();
-				deleteMe = Head;
-			}
+			ArrayNode<Type> * temp = current;
+			current = current->getNext();
+			delete temp;
 		}
 		delete Head;
+		Head = nullptr;
+		end = nullptr;
+		size 0;
+
 }
 template<class Type>
 int CTECList<Type>:: getSize()
@@ -39,93 +44,19 @@ int CTECList<Type>:: getSize()
 
 }
 template<class Type>
-void CTECList<Type>::addToFront(Type value)
+void CTECList<Type>::addToFront(const Type& value)
 {
-	//check size >0
-		//make node point to head
-		//have head point to the new node
-	ArrayNode<Type> *first, *newNode, *last, *newItem, *count;
-	assert(size >0);
-	ArrayNode<Type> *current;
-	ArrayNode<Type> *trailCurrent;
-	ArrayNode<Type> *newNode;
-	bool found;
-	newNode = new ArrayNode<Type>;
-	newNode->info = newItem;
-	newNode->link = nullptr;
-	if(first== nullptr)
-	{
-		first = newNode;
-		last = newNode;
-		count++;
-	}
-	else
-	{
-		current = first;
-		found = false;
-		while(current != nullptr && !found)
-		{
-			if(current->info >= newItem)
-			{
-			found = true;
-			}
-			else
-			{
-				trailCurrent = current;
-				current = current->links;
-			}
-			if (current == first)
-			{
-				newNode->link = first;
-				first = newNode;
-				count++;
-			}
-
-		}
-	}
+	ArrayNode<Type> * newStuff = new ArrayNode<Type>(value, Head);
+	Head = newStuff;
+	calculatedSize();
 }
 template<class Type>
-void CTECList<Type>:: addToEnd(Type value)
+void CTECList<Type>:: addToEnd(const Type& value)
 {
-	ArrayNode<Type> *first, *newNode, *last, *newItem, *count;
-		assert(size >0);
-		ArrayNode<Type> *current;
-		ArrayNode<Type> *trailCurrent;
-		ArrayNode<Type> *newNode;
-		bool found;
-		newNode = new ArrayNode<Type>;
-		newNode->info = newItem;
-		newNode->link = nullptr;
-		if(first== nullptr)
-		{
-			first = newNode;
-			last = newNode;
-			count++;
-		}
-		else
-		{
-			current = first;
-			found = false;
-			while(current != nullptr && !found)
-			{
-				if(current->info >= newItem)
-				{
-				found = true;
-				}
-				else
-				{
-					trailCurrent = current;
-					current = current->links;
-				}
-				if (current == first)
-				{
-					newNode->link = first;
-					first = newNode;
-					count++;
-				}
+	ArrayNode<Type> * newStuff = new ArrayNode<Type>(value);
+	end->setNext(newStuff);
+	end = newStuff;
 
-			}
-		}
 }
 template<class Type>
 void CTECList<Type>::addAtIndex(int index, Type value)

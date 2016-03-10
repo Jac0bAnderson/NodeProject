@@ -7,6 +7,7 @@
 
 //Import section
 #include "Controller.h"//imports the controllers header file
+
 #include<string>
 
 
@@ -21,11 +22,18 @@ Controller::Controller()
 
 
 	notHipsterInts = new CTECArray<int>(5);
+	numbers = new CTECList<int>();
 }
 
 Controller::~Controller()
 {
 
+}
+void Controller :: testLists()
+{
+	numbers->addToFront(3);
+	numbers->addToEnd(8);
+	cout << "end should be 8" << numbers->getEnd() << endl;
 }
 //called when started
 void Controller :: start()
